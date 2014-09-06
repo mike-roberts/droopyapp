@@ -35,7 +35,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/home.html",
-          controller: 'homeCtrl'
+          controller: 'HomeCtrl'
+        }
+      }
+    })
+
+    .state('app.whereto', {
+      url: "/whereto",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/whereto.html",
+          controller: 'SessionsCtrl'
         }
       }
     })
@@ -45,7 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/sessions.html",
-          controller: 'sessionsCtrl'
+          controller: 'SessionsCtrl'
         }
       }
     })
@@ -55,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/session.html",
-          controller: 'sessionCtrl'
+          controller: 'SessionCtrl'
         }
       }
     })
@@ -65,7 +75,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: "templates/schedule.html",
-          controller: 'scheduleCtrl'
+          controller: 'ScheduleCtrl'
         }
       }
     })
@@ -85,6 +95,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: "templates/playlist.html",
           controller: 'PlaylistCtrl'
+        }
+      }
+    })
+
+    .state('app.attendees', {
+      url: "/attendees",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/attendees.html",
+          controller: 'AttCtrl'
         }
       }
     });

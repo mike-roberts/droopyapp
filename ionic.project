@@ -1,4 +1,7 @@
 {
   "name": "droopyapp",
-  "app_id": ""
+  "app_id": "",
+  "email": "mike@card.com",
+  "package_name": "com.droops.droopyapp",
+  "sass": true
 }

@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var livereload = require('gulp-livereload');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -26,7 +27,9 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+  livereload.listen();
+  gulp.watch(paths.sass, ['sass']).on('change', livereload.changed);
+
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -48,3 +51,29 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('build-ios', ['sass'], function(done) {
+  sh.exec('cordova build ios');
+  done();
+});
+gulp.task('build-android', ['sass'], function(done) {
+  sh.exec('cordova build android');
+  done();
+});
+
+gulp.task('build-all', ['build-ios', 'build-android']);
+
+gulp.task('reload', ['build-all']);
+
+gulp.task('prepare', function() {
+  sh.exec('cordova prepare ios');
+  sh.exec('cordova prepare android');
+});
+
+gulp.task('serve', ['prepare'], function() {
+  sh.exec('ionic serve');
+});
+
+//gulp.task('serve', ['build-all'], function () {
+//  sh.exec('cordova serve');
+//});

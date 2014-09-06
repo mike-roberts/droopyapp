@@ -3,7 +3,7 @@ To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
-
+*/
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
 $positive:                        #4a87ee !default;
@@ -13,7 +13,6 @@ $energized:                       #f0b840 !default;
 $assertive:                       #ef4e3a !default;
 $royal:                           #8a6de9 !default;
 $dark:                            #444 !default;
-*/
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -302,10 +301,34 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .droop-file-css:before {
 	content: "\e655";
 }
-
 body {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
 
+.item.bg-beginner {
+  background: rgba($balanced, 0.1);
+  .item-complex, .item-content {
+    background-color: transparent;
+  }
+}
+.item.bg-intermediate {
+  background: rgba($energized, 0.1);
+  .item-complex, .item-content {
+    background-color: transparent;
+  }
+}
+.item.bg-advanced {
+  background: rgba($assertive, 0.1);
+  .item-complex, .item-content {
+    background-color: transparent;
+  }
+}
+.user-picture {
+  width: 50px;
+  .img {
+    width: 50px;
+    height: 50px;
+  }
+}
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

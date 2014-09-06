@@ -4,8 +4,10 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="session in sessions" href="#/app/session/{{session.id}}">
-        {{session.title}}
+      <ion-item ng-repeat="session in sessions" href="#/app/session/{{session.id}}" class="item-icon-right" ng-class="{'bg-beginner': session['session skill level'] == 'Beginner', 'bg-intermediate': session['session skill level'] == 'Intermediate', 'bg-advanced': session['session skill level'] == 'Advanced'}">
+        {{ session.node_title }}
+        <p>Speaker: {{ session.users_node_name }}<br>{{ session.day }} {{ session.time }} {{ session.room }}</p>
+        <i class="icon droop" ng-class="{'droop-code': session['session category'].search('Back End') >= 0, 'droop-file-css': session['session category'].search('Front End') >= 0, 'droop-brush': session['session category'].search('Design') >= 0, 'droop-rocket2': session['session category'].search('Performance') >= 0, 'droop-suitcase': session['session category'].search('Business') >= 0, 'droop-tree': session['session category'].search('Building') >= 0, 'droop-aid': session['session category'].search('Volunteer') >= 0}"></i>
       </ion-item>
     </ion-list>
   </ion-content>

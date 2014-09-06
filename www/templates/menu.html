@@ -1,36 +1,45 @@
 <ion-side-menus>
 
   <ion-pane ion-side-menu-content>
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
       <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
+    <header class="bar bar-header bar-royal">
+      <h1 class="title">Menu</h1>
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="#/app/home">
+        <ion-item nav-clear menu-close href="#/app/home" class="item-icon-right">
           Home
+          <i class="icon droop droop-droplet"></i>
         </ion-item>
-        <ion-item nav-clear menu-close ng-click="#/app/sessions">
+        <ion-item nav-clear menu-close href="#/app/whereto" class="item-icon-right">
+          Where should I go next?
+          <i class="icon droop droop-direction"></i>
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/sessions" class="item-icon-right">
           Sessions
+          <i class="icon droop droop-lamp4"></i>
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/schedule">
+        <ion-item nav-clear menu-close href="#/app/schedule" class="item-icon-right">
           Schedule
+          <i class="icon droop droop-calendar"></i>
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/attendees">
+        <ion-item nav-clear menu-close href="#/app/attendees" class="item-icon-right">
           Attendees
+          <i class="icon droop droop-badge"></i>
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/sponsors">
+        <ion-item nav-clear menu-close href="#/app/sponsors" class="item-icon-right">
           Sponsors
+          <i class="icon droop droop-moneybag"></i>
         </ion-item>
-        <ion-item nav-clear menu-close href="login()">
+<!--         <ion-item nav-clear menu-close href="login()" class="item-icon-right">
           Log In
-        </ion-item>
+        </ion-item> -->
       </ion-list>
     </ion-content>
   </ion-side-menu>

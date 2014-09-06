@@ -33,27 +33,63 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('homeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope) {
 
 })
 
-.controller('sessionsCtrl', function($scope) {
-    $scope.sessions = [
-    { title: 'Building Mobile Apps', id: 1 },
-    { title: 'Drupal for Dummies', id: 2 },
-    { title: 'Securing Your Drupal Site', id: 3 },
-    { title: 'Farting in Bed', id: 4 },
-    { title: 'Dogs on Catnip', id: 5 },
-    { title: 'Need More Cowbell?', id: 6 }
+.controller('WhereCtrl', function($scope) {
+
+})
+
+.controller('SessionsCtrl', function($scope, $http, $ionicLoading) {
+  $scope.sessions = [
+    { title: 'Building Mobile Apps', id: 1 }
   ];
+
+  $ionicLoading.show({
+    template: "loading..."
+  });
+
+  $http({
+    url: "http://dev-d7-ionic-talk.gotpantheon.com/api/v/sessions",
+    method: "GET"
+  }).success(function(response){
+    console.log(response)
+    $scope.sessions = response;
+    $ionicLoading.hide();
+  }).error(function(response){
+    console.log(response);
+  });
 })
 
-.controller('sessionCtrl', function($scope, $stateParams) {
+.controller('SessionCtrl', function($scope, $stateParams) {
 
 })
 
-.controller('scheduleCtrl', function($scope) {
+.controller('ScheduleCtrl', function($scope) {
 
+})
+
+.controller('AttCtrl', function($scope, $http, $ionicLoading) {
+  $scope.atts = [];
+  $ionicLoading.show({
+    template: "loading..."
+  });
+
+  $http({
+    url: "http://dev-d7-ionic-talk.gotpantheon.com/api/v/attendees",
+    method: "GET"
+  }).success(function(response){
+    console.log(response)
+    $scope.atts = response;
+    $ionicLoading.hide();
+  }).error(function(response){
+    console.log(response);
+  });
+
+  $scope.getItemHeight = function(item, index) {
+    return (index % 2) === 0 ? 50 : 50;
+  }
 })
 
 .controller('PlaylistsCtrl', function($scope) {
